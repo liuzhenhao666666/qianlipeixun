@@ -1,0 +1,25 @@
+--cpu Cortex-M3
+"test_touji\startup_stm32f103xb.o"
+"test_touji\main.o"
+"test_touji\gpio.o"
+"test_touji\tim.o"
+"test_touji\stm32f1xx_it.o"
+"test_touji\stm32f1xx_hal_msp.o"
+"test_touji\stm32f1xx_hal_gpio_ex.o"
+"test_touji\stm32f1xx_hal_tim.o"
+"test_touji\stm32f1xx_hal_tim_ex.o"
+"test_touji\stm32f1xx_hal.o"
+"test_touji\stm32f1xx_hal_rcc.o"
+"test_touji\stm32f1xx_hal_rcc_ex.o"
+"test_touji\stm32f1xx_hal_gpio.o"
+"test_touji\stm32f1xx_hal_dma.o"
+"test_touji\stm32f1xx_hal_cortex.o"
+"test_touji\stm32f1xx_hal_pwr.o"
+"test_touji\stm32f1xx_hal_flash.o"
+"test_touji\stm32f1xx_hal_flash_ex.o"
+"test_touji\stm32f1xx_hal_exti.o"
+"test_touji\system_stm32f1xx.o"
+--strict --scatter "test_touji\test_touji.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "test_touji.map" -o test_touji\test_touji.axf
