@@ -1,0 +1,25 @@
+--cpu Cortex-M3
+"duoji_1\startup_stm32f103xb.o"
+"duoji_1\main.o"
+"duoji_1\gpio.o"
+"duoji_1\tim.o"
+"duoji_1\stm32f1xx_it.o"
+"duoji_1\stm32f1xx_hal_msp.o"
+"duoji_1\stm32f1xx_hal_gpio_ex.o"
+"duoji_1\stm32f1xx_hal_tim.o"
+"duoji_1\stm32f1xx_hal_tim_ex.o"
+"duoji_1\stm32f1xx_hal.o"
+"duoji_1\stm32f1xx_hal_rcc.o"
+"duoji_1\stm32f1xx_hal_rcc_ex.o"
+"duoji_1\stm32f1xx_hal_gpio.o"
+"duoji_1\stm32f1xx_hal_dma.o"
+"duoji_1\stm32f1xx_hal_cortex.o"
+"duoji_1\stm32f1xx_hal_pwr.o"
+"duoji_1\stm32f1xx_hal_flash.o"
+"duoji_1\stm32f1xx_hal_flash_ex.o"
+"duoji_1\stm32f1xx_hal_exti.o"
+"duoji_1\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "duoji_1\duoji_1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "duoji_1.map" -o duoji_1\duoji_1.axf
