@@ -23,7 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <string.h>  //  memcpy
+#include <stdlib.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,14 +45,14 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+uint8_t RxData[10];
+float TxValue = 1.0f;  // Example float value to transmit
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-uint8_t RxData[10];
-uint8_t TxData[10] = "hello"; 
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -96,15 +97,22 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		HAL_UART_Transmit(&huart1,TxData,5,1000);
-		HAL_UART_Receive(&huart1,RxData,5,1000);
-		if(RxData[0] == '1'){
-			HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
-			RxData[0] = 0;
-		}
-    /* USER CODE END WHILE */
+        // Use memcpy to copy the float to a byte array
+        uint8_t TxData[sizeof(float)];
+        memcpy(TxData, &TxValue, sizeof(float));
 
-    /* USER CODE BEGIN 3 */
+        // Send the float as bytes
+        HAL_UART_Transmit(&huart1, TxData, sizeof(TxData), 1000);
+
+        // Receive data
+        HAL_UART_Receive(&huart1, RxData, 5, 1000);
+        if (RxData[0] == '1') {
+            HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+            RxData[0] = 0;
+        }
+        /* USER CODE END WHILE */
+
+        /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }

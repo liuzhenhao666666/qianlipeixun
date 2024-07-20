@@ -28,3 +28,5 @@ test_uart\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 test_uart\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 test_uart\main.o: ../Core/Inc/usart.h
 test_uart\main.o: ../Core/Inc/gpio.h
+test_uart\main.o: D:\Programfile\MDK\Core\ARM\ARMCC\Bin\..\include\string.h
+test_uart\main.o: D:\Programfile\MDK\Core\ARM\ARMCC\Bin\..\include\stdlib.h
